@@ -8,6 +8,17 @@ class GetAllUsersUseCase {
         const users = await prisma.user.findMany({
             orderBy: {
                 name: "asc"
+            },
+            include: {
+                movie_rent: {
+                    select: {
+                        movie: {
+                            select: {
+                                title: true
+                            }
+                        }
+                    }
+                }
             }
         })
         

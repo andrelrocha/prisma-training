@@ -19,7 +19,7 @@ class CreateMovieRentUseCase {
                 movieId: movieId
             }
         })
-        if(!movieAlreadyRented) {
+        if(movieAlreadyRented) {
             throw new AppError("Movie is currently rented")
         }
 

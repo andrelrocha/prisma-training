@@ -8,6 +8,18 @@ class GetMovieByReleaseDateUseCase {
         const movies = await prisma.movie.findMany({
             orderBy: {
                 release_date: "desc"
+            },
+            include: {
+                movie_rent: {
+                    select: {
+                        user: {
+                            select: {
+                                name: true,
+                                email: true
+                            }
+                        }
+                    }
+                }
             }
         })
 

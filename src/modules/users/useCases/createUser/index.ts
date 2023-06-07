@@ -5,6 +5,6 @@ import { CreateUserController } from "./createUserController";
 
 const createUserUseCase = new CreateUserUseCase()
 
-const createCategoryController = new CreateUserController(createUserUseCase)
+const createUserController = new CreateUserController(createUserUseCase)
 
-export { createCategoryController }
+export { createUserController }
